@@ -1,0 +1,85 @@
+A obj1 = new();
+WriteLine(obj1);
+//obj1.abstractFunc();
+obj1.abstractFunc();
+//B  obj2=new();
+B obj2 = obj1 as B;  // as (data)pattern service
+if (obj2 is IHelele1 kkk2) kkk2.abstractFunc();
+//C obj3=new();
+C obj3 = obj1 as C;  // as (data)pattern service
+if (obj3 is IHelele1 kkk3) kkk3.abstractFunc();
+//D obj4=new();
+D1 obj4 = obj1 as D1;  // as (data)pattern service
+if (obj4 is IHelele1 kkk4) kkk4.abstractFunc();
+DD obj5 = new();
+WriteLine(obj5);
+public partial class A : B, IHelele1
+// inheritence.....drived
+{
+    // className == functionName....constructor
+    public A() => WriteLine("A :: default constructor");
+    public void abstractFunc()
+ => WriteLine("A class :: public void abstractFunc()");
+}
+public partial class B : C, IHelele1
+{
+    // className == functionName....constructor
+    public B() => WriteLine("B :: default constructor");
+    public void abstractFunc()
+ => WriteLine("B class :: public void abstractFunc()");
+}
+public partial class C : D1, IHelele1
+{
+    // overriding.....D class...inheritence
+    //public override void abstractFunc()
+    //    => WriteLine("C class :: public override void abstractFunc()");
+    public void abstractFunc()
+   => WriteLine("C class :: public void abstractFunc()");
+    public int Suja1 { get; set; } = default;
+    // className == functionName....constructor
+    public C() => WriteLine("C :: default constructor");
+    // polymophism=overloading + overriding service
+    // oriented service===>polymophism using
+    // overloading service
+    public static C operator +(C c1, C c2)
+        => new C { Suja1 = c1.Suja1 + c2.Suja1 };
+    //{
+    //    C imsi = new C();
+    //    imsi.Suja1 = c1.Suja1+c2.Suja1;
+    //    return imsi;
+    //}
+}
+// C# 10.0 later function-level.....sealed
+// abstract....only-inheritence.....C# 1.0
+// C# 10.0....interface-service....abstraction....method-level
+public abstract partial class D //: DD
+{
+    // pure-abstraction function
+    public abstract void abstractFunc();
+    // className == functionName....constructor
+    public D() => WriteLine("D :: default constructor");
+    public sealed override string ToString()
+        => "D class :: public override string ToString()";
+}
+// C# 10.0 later interface service
+public interface IHelele1
+{
+    public abstract void abstractFunc();
+}
+public partial class D1 : IHelele1 //: DD
+{
+    // pure-abstraction function
+    //public abstract void abstractFunc();
+    // className == functionName....constructor
+    public D1() => WriteLine("D1 :: default constructor");
+    public void abstractFunc()
+    => WriteLine("D1 class :: public void abstractFunc()");
+    public sealed override string ToString()
+        => "D1 class :: public override string ToString()";
+}
+// C# 1.0 class-level....must....sealed
+public sealed partial class DD
+{
+    // className == functionName....constructor
+    public DD() => WriteLine("DD :: default constructor");
+}
