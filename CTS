@@ -1,0 +1,200 @@
+WriteLine($$"""
+    {
+        "1" : {{1}},                                         "1" : {{1.GetType()}},                                            
+        "1" : {{'1'}},                                       "1" : {{'1'.GetType()}},                                          
+        "1" : {{ "1"}},                                     "1" : {{ "1".GetType()}},                                        
+        "SujaClass" : {{new SujaClass()}}     "SujaClass : {{(new SujaClass()).GetType()}}        
+    }
+    """);
+WriteLine($$"""
+    {
+        "1" : {{1.GetType().BaseType}},                                         
+        "1" : {{'1'.GetType().BaseType}},                                       
+        "1" : {{"1".GetType().BaseType}},                                     
+        "SujaClass" : {{(new SujaClass()).GetType().BaseType}}     
+    }
+    """);
+WriteLine($$"""
+    {
+        "1" : {{1.GetType().BaseType.BaseType}},                                         
+        "1" : {{'1'.GetType().BaseType.BaseType}},                                       
+        "1" : {{"1".GetType().BaseType}},                                     
+        "SujaClass" : {{(new SujaClass()).GetType().BaseType}}     
+    }
+    """);
+WriteLine($$"""
+    {
+        "1" : {{1.GetType().BaseType.GetType()}},                                         
+        "1" : {{'1'.GetType().BaseType.GetType()}},                                       
+        "1" : {{"1".GetType().BaseType.GetType()}},                                     
+        "SujaClass" : {{(new SujaClass()).GetType().BaseType.GetType()}}     
+    }
+    """);
+WriteLine($$"""
+    {
+        "1" : {{1.GetType().BaseType.GetType()}},                                         
+        "1" : {{'1'.GetType().BaseType.GetType()}},                                       
+        "1" : {{"1".GetType().BaseType.GetType()}},                                     
+        "SujaClass" : {{(new SujaClass()).GetType().BaseType.GetType()}}     
+    }
+    """);
+WriteLine($$"""
+    {
+        "1" : {{1.GetType().BaseType.GetType().BaseType}},                                         
+        "1" : {{'1'.GetType().BaseType.GetType().BaseType}},                                       
+        "1" : {{"1".GetType().BaseType.GetType().BaseType}},                                     
+        "SujaClass" : {{(new SujaClass()).GetType().BaseType.GetType().BaseType}}     
+    }
+    """);
+WriteLine($$"""
+    {
+        "1" : {{1.GetType().BaseType.GetType().BaseType.BaseType}},                                         
+        "1" : {{'1'.GetType().BaseType.GetType().BaseType.BaseType}},                                       
+        "1" : {{"1".GetType().BaseType.GetType().BaseType.BaseType}},                                     
+        "SujaClass" : {{(new SujaClass()).GetType().BaseType.GetType().BaseType.BaseType}}     
+    }
+    """);
+WriteLine("====================");
+// C# data----valueType(primitive)....referenceType(nonPrimitive:: abstraction)
+WriteLine($$"""
+    {
+        "Id" : {{1}} 
+        "Age" : {{11}}
+        "Name" : {{"leebok"}}
+        "Gender" : {{true}}
+        "Address" : {{Addr.Seoul}}
+    }
+    """);
+WriteLine($$"""
+    {
+        "Id" : 1,
+        "Age" : 11,
+        "Name" : "leebok",
+        "Gender" : true,
+        "Address" : "seoul",
+    }
+    """);
+public enum Addr
+{
+    Seoul, Pusan, KwangJu, Jaeju, Inchun
+}
+public partial class SujaClass
+{
+    public int Suja { get; set; } = default;
+}
+public class Rootobject
+{
+    public int Id { get; set; }
+    public int Age { get; set; }
+    public string Name { get; set; }
+    public bool Gender { get; set; }
+    public string Address { get; set; }
+}
+public class Person
+{
+    public int Id { get; set; }
+    public int Age { get; set; }
+    public string Name { get; set; }
+    public bool Gender { get; set; }
+    public string Address { get; set; }
+}
+라인 쓰기($$"""
+    {
+"1" : {{1}}, "1" : {{1. 겟타입()}},
+"1" : {{'1'}}, "1" : {{'1'. 겟타입()}},
+"1" : {{ "1"}}, "1" : {{ "1". 겟타입()}},
+"수자클래스" : {{new SujaClass()}} "수자클래스 : {{(new SujaClass()). GetType()}}
+    }
+    """);
+라인 쓰기($$"""
+    {
+"1" : {{1. GetType(). 기본형}},
+"1" : {{'1'. GetType(). 기본형}},
+"1" : {{"1". GetType(). 기본형}},
+"SujaClass" : {{(new SujaClass()). GetType(). 베이스 타입}}
+    }
+    """);
+라인 쓰기($$"""
+    {
+"1" : {{1. GetType(). 베이스 타입. 기본형}},
+"1" : {{'1'. GetType(). 베이스 타입. 기본형}},
+"1" : {{"1". GetType(). 기본형}},
+"SujaClass" : {{(new SujaClass()). GetType(). 베이스 타입}}
+    }
+    """);
+라인 쓰기($$"""
+    {
+"1" : {{1. GetType(). 베이스 타입. 겟타입()}},
+"1" : {{'1'. GetType(). 베이스 타입. 겟타입()}},
+"1" : {{"1". GetType(). 베이스 타입. 겟타입()}},
+"SujaClass" : {{(new SujaClass()). GetType(). 베이스 타입. GetType()}}
+    }
+    """);
+라인 쓰기($$"""
+    {
+"1" : {{1. GetType(). 베이스 타입. 겟타입()}},
+"1" : {{'1'. GetType(). 베이스 타입. 겟타입()}},
+"1" : {{"1". GetType(). 베이스 타입. 겟타입()}},
+"SujaClass" : {{(new SujaClass()). GetType(). 베이스 타입. GetType()}}
+    }
+    """);
+라인 쓰기($$"""
+    {
+"1" : {{1. GetType(). 베이스 타입. GetType(). 기본형}},
+"1" : {{'1'. GetType(). 베이스 타입. GetType(). 기본형}},
+"1" : {{"1". GetType(). 베이스 타입. GetType(). 기본형}},
+"SujaClass" : {{(new SujaClass()). GetType(). 베이스 타입. GetType(). 베이스 타입}}
+    }
+    """);
+라인 쓰기($$"""
+    {
+"1" : {{1. GetType(). 베이스 타입. GetType(). 베이스 타입. 기본형}},
+"1" : {{'1'. GetType(). 베이스 타입. GetType(). 베이스 타입. 기본형}},
+"1" : {{"1". GetType(). 베이스 타입. GetType(). 베이스 타입. 기본형}},
+"SujaClass" : {{(new SujaClass()). GetType(). 베이스 타입. GetType(). 베이스 타입. 베이스 타입}}
+    }
+    """);
+줄 쓰기("===================");
+// C# data----valueType(원시).... 참조 유형(비원시적:: 추상화)
+라인 쓰기($$"""
+    {
+"Id" : {{1}}
+"나이" : {{11}}
+"이름" : {{"이복"}}
+"성별" : {{진실}}
+"주소" : {{주소. 서울}}
+    }
+    """);
+라인 쓰기($$"""
+    {
+"Id" : 1,
+"나이" : 11,
+"이름" : "이복",
+"성별" : 사실,
+"주소" : "서울",
+    }
+    """);
+공공 에넘 주소
+{
+서울, 부산, 광주, 재주, 인천
+}
+공개 부분 클래스 SujaClass
+{
+공개 인트 수자 { 얻기; 설정; } = 기본;
+}
+공개 클래스 루트 오브젝트
+{
+공개 인트 ID { 얻기; 설정; }
+공공 인트 연령 { 얻기; 설정; }
+공개 문자열 이름 { 얻기; 설정; }
+공공구 성별 { 얻기; 설정; }
+공용 스트링 주소 { 받기; 설정; }
+}
+공개 클래스 사람
+{
+공개 인트 ID { 얻기; 설정; }
+공공 인트 연령 { 얻기; 설정; }
+공개 문자열 이름 { 얻기; 설정; }
+공공구 성별 { 얻기; 설정; }
+공용 스트링 주소 { 받기; 설정; }
+}
