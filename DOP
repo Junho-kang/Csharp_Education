@@ -1,0 +1,148 @@
+// classic/legacy-program.....OOP program
+// code====>data usage.......static-program...desk-top
+WriteLine( "helele and hevele and hevole" );
+// modern-program.....data-oriented program....DOP
+// data====>code usage.......dynamic-program...app-desktopApp
+"helele and hevele and hevole".ToList().ForEach(Write);
+WriteLine();
+// modern-program.....data-oriented program....DOP
+// data====>code usage.......dynamic-program...app-desktopApp
+"helele and hevele and hevole"
+    //.Where(kkk=>kkk.Equals('e'))
+    .Select(kkk=>kkk switch
+    {
+        'h'=> "h string",
+        'e'=> "e string",
+        'l'=> "l string",
+        _=> "default service"
+    })
+    .Skip(5)
+    .Take(100)
+    .ToList().ForEach(WriteLine);
+WriteLine();
+var heleleObj = () =>
+{
+    // generic-class service
+    AAA<int, float> obj = new(); //new AAA<int, float>();
+    obj.suja1 = 10;
+    obj.suja2 = 20.0f;
+    WriteLine($$"""
+    {
+        obj.suja1 = {{obj.suja1}};
+        obj.suja2 = {{obj.suja2}};
+    }
+    """);
+    AAA<int, int> obj1 = new(); //new AAA<int, int>();
+    obj1.suja1 = 10;
+    obj1.suja2 = 20;
+    WriteLine($$"""
+    {
+        {{obj1.suja1}} = {{obj1.suja1}};
+        {{obj1.suja2}} = {{obj1.suja2}};
+    }
+    """);
+    AAA<string, decimal> obj2 = new(); //new AAA<int, int>();
+    obj2.suja1 = "10";
+    obj2.suja2 = 20.0m;
+    WriteLine($$"""
+    {
+        {{nameof(obj2.suja1)}} = {{obj.suja1}};
+        {{nameof(obj2.suja2)}} = {{obj.suja2}};
+        {{sizeof(int)}} = {{obj.suja1}};
+        {{typeof(int)}} = {{obj.suja1}};
+        {{typeof(HeleleClass)}} = {{obj.suja2}};
+    }
+    """);
+};
+//HeleleClass obj = new();
+HeleleClass.SetSuja(100);
+WriteLine( HeleleClass.GetSuja());
+HeleleClass.HeleleAbstractFunc();
+//  C# 2.0 : generics.... < T >....no-boxing service ::  1. generic-function
+WriteLine(HeleleClass.EqualTest<int>(1, 2));
+WriteLine(HeleleClass.EqualTest<int>(1, 1));
+WriteLine(HeleleClass.EqualTest<float>(1.0f, 2.0f));
+WriteLine(HeleleClass.EqualTest<float>(1.0f, 1.0f));
+WriteLine(HeleleClass.EqualTest<double>(1.0, 2.0));
+WriteLine(HeleleClass.EqualTest<double>(1.0, 1.0));
+WriteLine(HeleleClass.EqualTest<decimal>(1.0m, 2.0m));
+WriteLine(HeleleClass.EqualTest<decimal>(1.0m, 1.0m));
+WriteLine(HeleleClass.EqualTest<string>("1", "2"));
+WriteLine(HeleleClass.EqualTest<string>("1", "1"));
+//  C# 2.0 : generics.... < T >....no-boxing service ::  1. generic-function
+WriteLine(1.EqualTest(2));
+WriteLine(1.EqualTest(1));
+WriteLine(HeleleClass.EqualTest1<float>(1.0f, 2.0f));
+WriteLine(HeleleClass.EqualTest1<float>(1.0f, 1.0f));
+WriteLine(HeleleClass.EqualTest1<double>(1.0, 2.0));
+WriteLine(HeleleClass.EqualTest1<double>(1.0, 1.0));
+WriteLine(HeleleClass.EqualTest1<decimal>(1.0m, 2.0m));
+WriteLine(HeleleClass.EqualTest1<decimal>(1.0m, 1.0m));
+WriteLine(HeleleClass.EqualTest1<string>("1", "2"));
+WriteLine(HeleleClass.EqualTest1<string>("1", "1"));
+// static-method-call.....API-call.....SDK....Library....net framework Library
+//  C# 2.0 : generics.... < T >....no-boxing service ::  1. generic-function
+WriteLine(HeleleClass.EqualTest2<int>(1, 2));
+WriteLine(HeleleClass.EqualTest2<int>(1, 1));
+WriteLine(HeleleClass.EqualTest2<float>(1.0f, 2.0f));
+WriteLine(HeleleClass.EqualTest2<float>(1.0f, 1.0f));
+WriteLine(HeleleClass.EqualTest2<double>(1.0, 2.0));
+WriteLine(HeleleClass.EqualTest2<double>(1.0, 1.0));
+WriteLine(HeleleClass.EqualTest2<decimal>(1.0m, 2.0m));
+WriteLine(HeleleClass.EqualTest2<decimal>(1.0m, 1.0m));
+WriteLine(HeleleClass.EqualTest2<string>("1", "2"));
+WriteLine(HeleleClass.EqualTest2<string>("1", "1"));
+//if(HeleleClass is IHelele kkk)
+//{
+//}
+public interface IHelele
+{
+    public abstract static void HeleleAbstractFunc();
+    public static void HeleleFunc()
+        => WriteLine("IHelele :: public static void HeleleFunc()");
+}
+public interface IHelele2
+{
+    // generic-function
+    public static abstract bool EqualTest<T>(T su1,T su2);
+}
+// utility class
+public static partial class HeleleClass //: IHelele,IHelele2
+{
+    //private HeleleClass()
+    //{
+    //}
+   static public int Suja { get; set; }=default(int);
+    // extention-method.....C# 3.0
+    public static bool EqualTest<T>(this T su1, T su2)
+        =>su1.Equals(su2);
+    // extention-method.....C# 3.0...static-class-static-method==>this...python...self
+    public static bool EqualTest1<T>(this T su1, T su2)
+       => su1.Equals(su2);
+    public static bool EqualTest2<T>( T su1, T su2)
+       => su1.Equals(su2);
+    static public int GetSuja()=>Suja;
+    public static void HeleleAbstractFunc()
+    => WriteLine("HeleleClass :: public static void HeleleAbstractFunc()");
+    static public void SetSuja(int su) => Suja = su;
+}
+public partial class AAA<T1,T2>
+{
+    public T1 suja1 { get; set; } = default;
+    public T2 suja2 { get; set; } = default;
+}
+//public partial class bbb
+//{
+//    public char suja1 { get; set; } = default;
+//    public float suja2 { get; set; } = default;
+//}
+//public partial class ccc
+//{
+//    public int suja1 { get; set; } = default;
+//    public int suja2 { get; set; } = default;
+//}
+//public partial class ddd
+//{
+//    public float suja1 { get; set; } = default;
+//    public float suja2 { get; set; } = default;
+//}
