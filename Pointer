@@ -1,0 +1,263 @@
+var HeleleObj = (int suuu) =>  // 함수로 묶으면, void HeleleObj = () =>
+{
+    // C# 1.0 managed-code (clr service) vs unManaged (C/C++ language)
+
+    // 포인터 개념 설명
+
+
+    // C# 11.0으로 upgrade, native-type...CPU-type  managed point // 머신러닝 할때, GPU
+    IntPtr suja10 = 10;
+
+    ref IntPtr suja11 = ref suja10;
+    ref IntPtr suja12 = ref suja11;
+    ref IntPtr suja13 = ref suja12;
+    ref IntPtr suja14 = ref suja13;
+    ref IntPtr suja15 = ref suja14;
+
+    WriteLine($"suja10:{suja10}--suja11:{suja11}--suja12:{suja12}--suja13:{suja13}--suja14:{suja14}");
+
+    suja10 = 1000;
+    WriteLine($"suja10:{suja10}--suja11:{suja11}--suja12:{suja12}--suja13:{suja13}--suja14:{suja14}");
+
+    suja11 = 9999;
+    WriteLine($"suja10:{suja10}--suja11:{suja11}--suja12:{suja12}--suja13:{suja13}--suja14:{suja14}");
+
+    suja12 = 12345;
+    WriteLine($"suja10:{suja10}--suja11:{suja11}--suja12:{suja12}--suja13:{suja13}--suja14:{suja14}");
+
+    suja13 = 8888;
+    WriteLine($"suja10:{suja10}--suja11:{suja11}--suja12:{suja12}--suja13:{suja13}--suja14:{suja14}");
+
+    suja14 = 9999;
+    WriteLine($"suja10:{suja10}--suja11:{suja11}--suja12:{suja12}--suja13:{suja13}--suja14:{suja14}");
+
+};
+{
+    // 
+    unsafe
+    {
+        int suja = 10;
+        int* suja1 = &suja; // single
+        int* suja2 = &suja;
+        int* suja3 = &suja;
+        int* suja4 = &suja;
+
+        WriteLine($"suja:{suja}--suja1:{*suja1}--suja2:{*suja2}--suja3:{*suja3}--suja4:{*suja4}");
+
+        suja = 100;
+        WriteLine($"suja:{suja}--suja1:{*suja1}--suja2:{*suja2}--suja3:{*suja3}--suja4:{*suja4}");
+
+        *suja1 = 1234;
+        WriteLine($"suja:{suja}--suja1:{*suja1}--suja2:{*suja2}--suja3:{*suja3}--suja4:{*suja4}");
+
+        *suja2 = 4321;
+        WriteLine($"suja:{suja}--suja1:{*suja1}--suja2:{*suja2}--suja3:{*suja3}--suja4:{*suja4}");
+
+        *suja3 = 10000;
+        WriteLine($"suja:{suja}--suja1:{*suja1}--suja2:{*suja2}--suja3:{*suja3}--suja4:{*suja4}");
+
+        *suja4 = 9999;
+        WriteLine($"suja:{suja}--suja1:{*suja1}--suja2:{*suja2}--suja3:{*suja3}--suja4:{*suja4}");
+
+    }
+}
+
+//HeleleObj(100);
+//if(A is IHelele3 bbb)
+//{
+//}
+A.virtualStaticFunc();
+A.abstractStaticFunc();
+B.virtualStaticFunc();
+B.abstractStaticFunc();
+C.virtualStaticFunc();
+C.abstractStaticFunc();
+D1.virtualStaticFunc();
+D1.abstractStaticFunc();
+WriteLine("static interface=======VS(봤쓰)========instance interface");
+A obj1 = new();
+WriteLine(obj1);
+//obj1.
+WriteLine("........default interface service");
+if (obj1 is IHelele1 aaa)
+{
+    aaa.GeneralFunc();
+    aaa.GeneralFunc();
+    aaa.GeneralFunc();
+}
+WriteLine("........default interface service");
+//obj1.virtualFunc
+obj1.virtualFunc();
+obj1.Suja1 = 10;
+obj1.abstractFunc();
+obj1.B_class_specialFunc();
+obj1.virtualFunc();
+//obj1.abstractFunc();
+//obj1.abstractFunc();
+WriteLine("=========");
+if (obj1 is B kkk)
+{
+    kkk.B_class_specialFunc();
+    kkk.abstractFunc();
+    kkk.virtualFunc();
+    //if(kkk is IHelele4 aaa2)
+    //{
+    //    aaa2.
+    //}
+}
+if (obj1 is C kkk1)
+{
+    kkk1.abstractFunc();
+    kkk1.virtualFunc();
+}
+if (obj1 is D1 kkk2)
+{
+    kkk2.abstractFunc();
+    kkk2.virtualFunc();
+}
+WriteLine("=========");
+/*
+//B  obj2=new();
+// C# static-operation===>type service
+B  obj2=obj1 as B;  // as (data)pattern service
+WriteLine("static-operation(before C# 6.0)=========type-service(strong-type)");
+obj2.B_class_specialFunc();
+WriteLine("=========");
+// if(obj2 == null)  // static-operatator(static-function) service
+// if(obj2 is null)  // dynamic-operation((data)service)
+// if pattern recognization service....C# 7.0 (data)pattern service
+if (obj2 is IHelele1 kkk2) kkk2.abstractFunc();
+//C obj3=new();
+C obj3 = obj1 as C;  // as (data)pattern service
+if (obj3 is IHelele1 kkk3) kkk3.abstractFunc();
+//D obj4=new();
+D1 obj4 = obj1 as D1;  // as (data)pattern service
+if (obj4 is IHelele1 kkk4) kkk4.abstractFunc();
+*/
+WriteLine("virtual interface====================");
+DD obj5 = new();
+WriteLine(obj5);
+if (obj5 is IHelele2 kkk3)
+{
+    kkk3.virtualFunc();
+}
+WriteLine("=============");
+public partial class A : B, IHelele1, IHelele2
+    , IHelele3, IHelele4
+// inheritence.....drived
+{
+    new public static void virtualStaticFunc()
+         => WriteLine("A class :: public static virtual virtualStaticFunc()");
+    // className == functionName....constructor
+    public A() => WriteLine("A :: default constructor");
+    new public void abstractFunc()
+   => WriteLine("A class :: public void abstractFunc()");
+    new public void virtualFunc()
+      => WriteLine("A class :: public override void virtualFunc()");
+    public static void abstractStaticFunc()
+    => WriteLine(" A class :: public static void abstractStaticFunc()");
+}
+public partial class B : C, IHelele1, IHelele2
+    , IHelele3, IHelele4
+{
+    new public static void virtualStaticFunc()
+          => WriteLine("B class :: public static virtual virtualStaticFunc()");
+    public void B_class_specialFunc()
+        => WriteLine("B class :: public void B_class_specialFunc()");
+    // className == functionName....constructor
+    public B() => WriteLine("B :: default constructor");
+    new public void abstractFunc()
+  => WriteLine("B class :: public void abstractFunc()");
+    new public void virtualFunc()
+      => WriteLine("B class :: public override void virtualFunc()");
+    public static void abstractStaticFunc()
+        => WriteLine(" B class :: public static void abstractStaticFunc()");
+}
+public partial class C : D1, IHelele1, IHelele2
+    , IHelele3, IHelele4
+{
+    new public static void virtualStaticFunc()
+          => WriteLine("C class :: public static virtual virtualStaticFunc()");
+    new public void virtualFunc()
+    => WriteLine("C class :: public override void virtualFunc()");
+    // overriding.....D class...inheritence
+    //public override void abstractFunc()
+    //    => WriteLine("C class :: public override void abstractFunc()");
+    // method-hide service vs override service
+    new public void abstractFunc()
+   => WriteLine("C class :: public void abstractFunc()");
+    public static void abstractStaticFunc()
+     => WriteLine(" C class :: public static void abstractStaticFunc()");
+    public int Suja1 { get; set; } = default;
+    // className == functionName....constructor
+    public C() => WriteLine("C :: default constructor");
+    // polymophism=overloading + overriding service
+    // oriented service===>polymophism using
+    // overloading service
+    public static C operator +(C c1, C c2)
+        => new C { Suja1 = c1.Suja1 + c2.Suja1 };
+    //{
+    //    C imsi = new C();
+    //    imsi.Suja1 = c1.Suja1+c2.Suja1;
+    //    return imsi;
+    //}
+}
+// C# 10.0 later function-level.....sealed
+// abstract....only-inheritence.....C# 1.0
+// C# 10.0....interface-service....abstraction....method-level
+public abstract partial class D //: DD
+{
+    // pure-abstraction function
+    public abstract void abstractFunc();
+    // className == functionName....constructor
+    public D() => WriteLine("D :: default constructor");
+    public sealed override string ToString()
+        => "D class :: public override string ToString()";
+}
+// C# 10.0 later interface service
+public interface IHelele1
+{
+    public void GeneralFunc()
+        => WriteLine("......IHelele1 ::  public void GeneralFunc()");
+    public abstract void abstractFunc();
+}
+public interface IHelele2
+{
+    // default code-service
+    public virtual void virtualFunc()
+         => WriteLine("IHelele2 :: public virtual void virtualFunc()");
+}
+public interface IHelele3
+{
+    public static virtual void virtualStaticFunc()
+          => WriteLine("IHelele3 :: public static virtual virtualStaticFunc()");
+}
+public interface IHelele4
+{
+    public static abstract void abstractStaticFunc();
+}
+public partial class D1 : IHelele1, IHelele2
+    , IHelele3, IHelele4 //: DD
+{
+    public static void virtualStaticFunc()
+        => WriteLine("D1 class :: public static virtual virtualStaticFunc()");
+    // pure-abstraction function...순수 가상함수
+    //public abstract void abstractFunc();
+    // className == functionName....constructor
+    // virtual function.....가상함수
+    public void virtualFunc()
+        => WriteLine("D1 class :: public virtual void virtualFunc()");
+    public D1() => WriteLine("D1 :: default constructor");
+    public void abstractFunc()
+    => WriteLine("D1 class :: public void abstractFunc()");
+    public sealed override string ToString()
+        => "D1 class :: public override string ToString()";
+    public static void abstractStaticFunc()
+     => WriteLine(" D1 class :: public static void abstractStaticFunc()");
+}
+// C# 1.0 class-level....must....sealed
+public sealed partial class DD : IHelele2
+{
+    // className == functionName....constructor
+    public DD() => WriteLine("DD :: default constructor");
+}
