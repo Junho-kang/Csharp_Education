@@ -1,0 +1,84 @@
+// callee(parameters)/caller(parameters)
+using System.Numerics;
+do
+{
+    WriteLine("숫자를 넣으시오?");
+    int.TryParse(ReadLine(), out int suja1);
+    if(suja1 == -999) break; // -999....EOF/EOS,,,-1:BOF/BOS
+    //WriteLine("infininity.....sequence....alive....sensor");
+    WriteLine("또 숫자를 넣으시오?");
+    int.TryParse(ReadLine(), out int suja2);
+    WriteLine($"suja1:{suja1} --- suja2:{suja2}");
+    //Swap(suja1, suja2);
+    Swap2(ref suja1, ref suja2);
+    WriteLine($"suja1:{suja1} --- suja2:{suja2}");
+    //if(ConsoleKey.Z==ReadKey().Key) break;
+} while (true);
+do
+{
+    Swap22(out int suja10, out int suja20);
+    WriteLine($"suja1:{suja10} --- suja2:{suja20}");
+    if(ConsoleKey.Z==ReadKey().Key) break;
+} while (true);
+do
+{
+    Swap22(out int suja10, out int suja20);
+    WriteLine($"suja1:{suja10} --- suja2:{suja20}");
+    if (ConsoleKey.Z == ReadKey().Key) break;
+} while (true);
+do
+{
+    Swap22(out int suja10, out int suja20);
+    WriteLine($"suja1:{suja10} --- suja2:{suja20}....AddTest:{Add<int>(suja10,suja20)}.......AddTest:{Add1(suja10, suja20)}");
+    if (ConsoleKey.Z == ReadKey().Key) break;
+} while (true);
+// called(arguments/augments)....copy-rule
+// ....default service....call-by-value
+void Swap(int su1,int su2)
+{
+    int imsi = su1;
+    su1 = su2;
+    su2 = imsi;
+}
+// called(arguments/augments)....copy-rule
+// ....default service....call-by-value
+// callee....base(abstract) ==> called...generalize.....implicite....in key-word
+// callee <== called.....explicite....out key-word
+T Add<T>( T su1,  T su2) where T : INumber<T>
+{
+    T sum = T.Zero;
+    //su1 = 1234;
+    sum=su1 +su2;
+    return su1 + su2;
+}
+T Add1<T>(in T su1,in T su2) //where T : INumber<T>
+{
+    //T sum = T.Zero;
+    dynamic s1=su1;
+    dynamic s2=su2;
+    //su1 = 1234;
+    //sum = su1 + su2;
+    return s1 + s2;
+}
+// called(arguments/augments)....copy-rule
+// ....default service....call-by-reference
+void Swap2(ref int su1, ref int su2)
+{
+    int imsi = su1;
+    su1 = su2;
+    su2 = imsi;
+}
+// called(arguments/augments)....copy-rule
+// ....default service....call-by-reference
+// callee....base(abstract) ==> called...generalize.....implicite....in key-word
+// callee <== called.....explicite....out key-word
+void Swap22(out int su1, out int su2)  
+{
+    WriteLine("숫자를 넣으시오?");
+    int.TryParse(ReadLine(),out su1);
+    int imsi = su1;
+    WriteLine("또 숫자를 넣으시오?");
+    int.TryParse(ReadLine(), out su2);
+    su1 = su2;
+    su2 = imsi;
+}
