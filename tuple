@@ -1,0 +1,87 @@
+//HeleleObj();
+// C# 7.0 tuple service.....columnSet
+int su1 = 10, su2 = 20;
+WriteLine($"su1:{su1} su2:{su2}");
+(su1,su2) = (su2,su1);
+WriteLine($"su1:{su1} su2:{su2}");
+// n-tuple operation
+(int s1,int s2,int s3,int s4,int s5,
+    int s6,int s7,int s8,int s9,int s10)  heleleSet
+    = (1,2,3,4,5,6,7,8,9,10);
+// n-tuple operation....unPack service...deconstruct serviec
+(int s1, int s2, int s3, int s4, int s5,
+    int s6, int s7, int s8, int s9, int s10) 
+    = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+//WriteLine(s1 + s2 + s3 + s4 + s5 + s6 + s7 + s8 + s9 + s10);
+WriteLine(heleleSet.s1 + heleleSet.s2 +
+    heleleSet.s3 + 
+    heleleSet.s4 + heleleSet.s5 +
+    heleleSet.s6 + heleleSet.s7 +
+    heleleSet.s8 + heleleSet.s9 +
+    heleleSet.s10);
+// classic-coding....syntax...call-by-valye....XXXXX
+//WriteLine(Sum(s1, s2, s3, s4, s5, s6, s7, s8, s9, s10));
+int Sum(int s1, int s2, int s3, int s4, int s5,
+    int s6, int s7, int s8, int s9, int s10)
+      => s1 + s2 + s3 + s4 + s5 + s6
+            + s7 + s8 + s9 + s10;
+Person p1 = new();
+WriteLine($$"""
+    {{p1.S1}}-{{p1.S2}}-{{p1.S3}}
+    """);
+(int s100, int s20, int s30, int s40, int s50,
+    int s60, int s70, int s80, int s90, int s1000)
+    = p1;
+WriteLine($$"""
+    {{s100}}-{{s20}}-{{s30}}-{{s40}}-{{s50}}-{{s60}}-{{s70}}-{{s80}}-{{s90}}-{{s1000}}
+    """);
+Saram p2=new();
+( s1,  s2,  s3,  s4,  s5,
+     s6,  s7,  s8,  s9,  s10)
+    = p2;
+WriteLine($$"""
+    {{s1}}-{{s2}}-{{s3}}-{{s4}}-{{s5}}-{{s6}}-{{s7}}-{{s8}}-{{s9}}-{{s10}}
+    """);
+Saram1 p12 = new(s5:500);
+(s1, s2, s3, s4, s5,
+     s6, s7, s8, s9, s10)
+    = p12;
+WriteLine($$"""
+    {{s1}}-{{s2}}-{{s3}}-{{s4}}-{{s5}}-{{s6}}-{{s7}}-{{s8}}-{{s9}}-{{s10}}
+    """);
+Saram2 p22 = new(s5: 500,s6:500,s2:1000);
+(s1, s2, s3, s4, s5,
+     s6, s7, s8, s9, s10)
+    = p22;
+WriteLine($$"""
+    {{s1}}-{{s2}}-{{s3}}-{{s4}}-{{s5}}-{{s6}}-{{s7}}-{{s8}}-{{s9}}-{{s10}}
+    """);
+// C# 9.0 record-object
+public partial record Saram(int s1=1, int s2=2, int s3=3, int s4=4, int s5=5,
+    int s6=6, int s7=7, int s8=8, int s9=9, int s10=10);
+// C# 10.0 record-object
+public partial record class Saram1(int s1 = 1, int s2 = 2, int s3 = 3, int s4 = 4, int s5 = 5,
+    int s6 = 6, int s7 = 7, int s8 = 8, int s9 = 9, int s10 = 10);
+// C# 10.0 record-object
+public partial record struct Saram2(int s1 = 1, int s2 = 2, int s3 = 3, int s4 = 4, int s5 = 5,
+    int s6 = 6, int s7 = 7, int s8 = 8, int s9 = 9, int s10 = 10);
+public partial class Person
+{
+    public void Deconstruct(
+       out int s100, out int s20, out int s30,
+       out int s40, out int s50,
+       out int s60, out int s70, out int s80,
+       out int s90, out int s1000)
+    => (s100, s20, s30, s40, s50, s60, s70, s80, s90, s1000) =
+        (S1,S2,S3,S4,S5,S6,S7,S8,S9,S10);
+    public int S1 { get; set; }=1;
+    public int S2 { get; set; } = 2;
+    public int S3 { get; set; } = 3;
+    public int S4 { get; set; } = 4;
+    public int S5 { get; set; } = 5;
+    public int S6 { get; set; } = 6;
+    public int S7 { get; set; } = 7;
+    public int S8 { get; set; } = 8;
+    public int S9 { get; set; } = 9;
+    public int S10 { get; set; } = 10;
+}
