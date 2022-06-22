@@ -1,0 +1,17 @@
+//callee(parameters)/caller(parameters)
+do
+{
+    WriteLine("infinitiy.....sequence...alive...sensor");
+
+    if(ConsoleKey.Z==ReadKey().Key) break;
+
+}while (true);
+
+// called(arguments/augments(data증감)... copy-rule
+// ...default service가 ... call-by-value이다.
+void Swap(int su1, int su2)
+{
+    int imsi = su1;
+    su1 = su2;
+    su2 = imsi;
+}
