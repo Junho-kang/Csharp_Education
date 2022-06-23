@@ -1,0 +1,301 @@
+//global using System.Reactive;
+//global using System.Reactive.Disposables;
+//global using System.Reactive.Linq;
+//global using System.Reactive.Subjects;
+//global using System.Collections;
+//global using demo7;
+string? strs = "Hello, World!";
+IDisposable disp= strs.ToObservable()
+    .Subscribe(Write);
+WriteLine();
+disp.Dispose();
+strs.ToList().ForEach(Write);
+WriteLine();
+foreach (var kkk in strs)
+{
+    Write(kkk);
+}
+WriteLine();
+SujaClassModel sujaObj = new();
+// Console .....View service
+foreach (var kkk in sujaObj)
+{
+    Write($"   {kkk}");
+}
+WriteLine();
+IEnumerator ptr1=sujaObj.GetEnumerator();
+ptr1 = sujaObj.GetEnumerator();
+while(ptr1.MoveNext())
+{
+    Write($"   {ptr1.Current}");
+}
+WriteLine();
+sujaObj.SujaEvent += SujaObj_SujaEvent;
+void SujaObj_SujaEvent(object? sender, EventArgs e)
+{
+    WriteLine($"Event....fire....{((SujaClassModel)sender).Suja}");
+}
+sujaObj.Suja = 10;
+sujaObj.Suja = 100;
+sujaObj.Suja = 1000;
+WriteLine($"{nameof(sujaObj.Suja)} : {sujaObj.Suja}");
+// LINKed-list...Single-linked-list
+IEnumerator ptr = strs.GetEnumerator();
+while (ptr.MoveNext())
+{
+    Write(ptr.Current);
+}
+WriteLine();
+ptr.Reset(); // BOF/BOS...begin of sequence(once)....-1; -999:EOF/EOS
+ptr.MoveNext();
+Write(ptr.Current);
+ptr.MoveNext();
+Write(ptr.Current);
+ptr.MoveNext();
+Write(ptr.Current);
+ptr.MoveNext();
+Write(ptr.Current);
+ptr.MoveNext();
+Write(ptr.Current);
+WriteLine();
+WriteLine(".....IEnumerator......IOberver....");
+// node.js===>event-Stream....webSocket......chatting program
+// Emitter object.....(OnXXXX...C/S....OnEmit)
+ISubject<char> subject=new Subject<char>();
+subject.Subscribe(Write);  // data-display
+ptr.Reset(); // BOF/BOS...begin of sequence(once)....-1; -999:EOF/EOS
+ptr.MoveNext();
+subject.OnNext((char)ptr.Current);
+ptr.MoveNext();
+subject.OnNext((char)ptr.Current);
+ptr.MoveNext();
+subject.OnNext((char)ptr.Current);
+ptr.MoveNext();
+subject.OnNext((char)ptr.Current);
+ptr.MoveNext();
+subject.OnNext((char)ptr.Current);
+SujaClass2 dataSet = new();  // observarable
+SujaClass3 dataController = new();  // observer
+dataSet.Subscribe(dataController);
+WriteLine();
+dataSet.Subscribe(dataController);
+WriteLine();
+dataSet.Subscribe(dataController);
+SujaClass4 selfData = new();
+selfData.Subscribe(selfData);
+WriteLine();
+selfData.OnNext(1);
+WriteLine();
+selfData.OnNext(2);
+WriteLine();
+selfData.OnNext(3);
+await Task.Factory.StartNew(()=>
+{ 
+Enumerable.Range(1, 20)
+    .Where(kkk => kkk % 2 == 0)
+    .Select(kkk => kkk switch
+    {
+        2 => 200,
+        4 => 400,
+        6 => 600,
+        8 => 800,
+        _ => 12345
+    }).Concat(Enumerable.Range(1, 20)
+    .Where(kkk => kkk % 2 == 0)
+    .Select(kkk => kkk switch
+    {
+        2 => 2002,
+        4 => 4004,
+        6 => 6006,
+        8 => 8008,
+        _ => 54321
+    })).Concat(Enumerable.Range(1, 20)
+    .Where(kkk => kkk % 2 == 0)
+    .Select(kkk => kkk switch
+    {
+        2 => 20022,
+        4 => 40044,
+        6 => 60066,
+        8 => 80088,
+        _ => 123450
+    })).ToList().ForEach(WriteLine);
+    WriteLine($@"
+    Thread-Id:{Thread.CurrentThread.ManagedThreadId}
+    Task-Id:{Task.CurrentId}
+    ");
+});
+WriteLine("dimensional reduction....flatMap----Enumerable~~~~~~~~~~~~~~~~~");
+await Task.Factory.StartNew(() =>
+{ 
+Enumerable.Range(1, 20)
+    .Where(kkk => kkk % 2 == 0)
+    .Select(kkk => kkk switch
+    {
+        2=>200,
+        4=>400,
+        6=>600,
+        8=>800,
+        _=> 12345
+    }).ToList().ForEach(WriteLine);
+    WriteLine($@"
+    Thread-Id:{Thread.CurrentThread.ManagedThreadId}
+    Task-Id:{Task.CurrentId}
+    ");
+});
+WriteLine("Enumerable(pull)=====duality========Observable(push)");
+await Task.Run(()=>
+{ 
+Observable.Range(1, 20)
+    .Where(kkk => kkk % 2 == 0)
+    .Select(kkk => kkk switch
+    {
+        2 => 200,
+        4 => 400,
+        6 => 600,
+        8 => 800,
+        _ => 12345
+    }).Subscribe(WriteLine);
+    WriteLine($@"
+    Thread-Id:{Thread.CurrentThread.ManagedThreadId}
+    Task-Id:{Task.CurrentId}
+    ");
+});
+WriteLine("conversions----observable~~~~~~~~~~~~~~~~~");
+// C# 4.0 Task.....asynchronose
+await Task.Run(() =>
+{
+    Observable.Range(1, 20)
+        .Where(kkk => kkk % 2 == 0)
+        .Select(kkk => kkk switch
+        {
+            2 => 200,
+            4 => 400,
+            6 => 600,
+            8 => 800,
+            _ => 12345
+        }).Zip(Observable.Range(1, 20)
+        .Where(kkk => kkk % 2 == 0)
+        .Select(kkk => kkk switch
+        {
+            2 => 200,
+            4 => 400,
+            6 => 600,
+            8 => 800,
+            _ => 12345
+        })).Zip(Observable.Range(1, 20)
+        .Where(kkk => kkk % 2 == 0)
+        .Select(kkk => kkk switch
+        {
+            2 => 200,
+            4 => 400,
+            6 => 600,
+            8 => 800,
+            _ => 12345
+        })).Subscribe(kkk => WriteLine(kkk));
+    WriteLine($@"
+    Thread-Id:{Thread.CurrentThread.ManagedThreadId}
+    Task-Id:{Task.CurrentId}
+    ");
+}); 
+//heleleSet.Subscribe(kkk=>WriteLine(kkk));
+public partial class SujaClass4 : ISubject<int>
+{
+    public void OnCompleted()
+        => WriteLine("\nOn Handller completed....^^/");
+    public void OnError(Exception error)
+        => WriteLine("\nOn Handller error....^^/");
+    public void OnNext(int value)
+        => Write($"   {value}");
+    public IDisposable Subscribe(
+        IObserver<int> observer)
+    {
+        // group-object
+        Enumerable.Range(10, 10).Subscribe(observer);
+        return Disposable.Empty;
+    }
+}
+public partial class SujaClass3 : IObserver<int>
+{
+    public void OnCompleted()
+        => WriteLine("\nOn Handller completed....^^/");
+    public void OnError(Exception error)
+        => WriteLine("\nOn Handller error....^^/");
+    public void OnNext(int value)
+        =>Write($"   {value}");
+}
+public partial class SujaClass2 : IObservable<int>
+{
+    // injector service
+    public IDisposable Subscribe(
+        IObserver<int> observer)
+    {
+        // group-object
+        Enumerable.Range(0, 10).Subscribe(observer);
+        return Disposable.Empty;
+    }
+}
+// Model service
+public partial class SujaClassModel: IEnumerable
+{
+    public event EventHandler SujaEvent;
+    // C# 6.0 later readonly-property
+    public int Length => sus.Length;
+    // Model
+    // store.....state.....group-variable
+    int[     ] sus=new int[10] {1,2,3,4,5,6,7,8,9,10};
+    // indexer.....single-variable
+    public int this[ int idx  ]
+    {
+        get => sus[idx];
+        set => sus[idx]=value;
+    }
+    // store.....state.....single-variable
+    int? suja;
+    // property.....single-variable
+    public int? Suja //{ get; set; } = default;
+    {
+        // get-accessor...restrics.....constrant....schema....metaData
+        get=> suja;
+        // get-accessor
+        set  // type-safety......security
+        {
+            if(value is not null)
+            {
+                if (SujaEvent is not null)
+                {
+                    suja = value;
+                    SujaEvent(this, EventArgs.Empty);
+                }
+            }
+        }
+    }
+    public IEnumerator GetEnumerator()
+    => (IEnumerator)new SujaClassController(this); 
+    // this==>injector service....IoC...inverse of control
+    // injector====>injection service....Dependency....SOLID
+}
+public class SujaClassController : IEnumerator
+{
+    int position;
+    SujaClassModel imsi;
+    public SujaClassController()
+    {
+        position = -1;   // BOF
+        imsi = new();
+    }
+    // this==>injector service....IoC...inverse of control
+    // injector====>injection service....Dependency....SOLID
+    public SujaClassController(SujaClassModel imja)
+    {
+        position = -1;   // BOF
+        imsi = imja;
+    }
+    public object Current => imsi[position];
+    public bool MoveNext()
+    {
+        position++;
+        if (position < imsi.Length) return true;
+        return false;
+    }
+    public void Reset() => position=-1;
+}
