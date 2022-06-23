@@ -1,0 +1,73 @@
+DataSet ds = new();
+// deatching service...disctete
+DataTable t1 = new();
+DataTable t2 = new();
+DataTable t3= new();
+// attaching service...collection
+ds.Tables.Add(t1);
+ds.Tables.Add(t2);
+ds.Tables.Add(t3);
+// deatching service...disctete
+ds.Tables.Remove(t1);
+ds.Tables.RemoveAt(1);
+// deatching service...disctete
+DataColumn id =new DataColumn("id",typeof(int));
+DataColumn age = new DataColumn("age", typeof(int));
+DataColumn name = new DataColumn("name", typeof(string));
+DataColumn gender = new DataColumn("gender", typeof(int));
+DataColumn address = new DataColumn("address", typeof(int));
+// attaching service...collection
+ds.Tables[0].Columns.Add(id);
+t2.Columns.Add(age);
+t2.Columns.Add(name);
+t2.Columns.Add(gender);
+t2.Columns.Add(address);
+DataRow row = t2.NewRow();
+// simulation data creating...Mock-Data-Test
+for(int i=0; i < 10; i++)
+{
+    row[0] = i+1;
+    row[1] = (i + 1) * 10;
+    row[2]=   $"leebok{i + 1}";
+    row[3] = (i % 2 == 0) ? ManWoman.Woman : ManWoman.Man;
+    row[4] = (i % 5) switch
+    {
+        0=>Address.Seoul,
+        1=>Address.Pusan,
+        2=>Address.KwangJu,
+        3=>Address.Inchun,
+        4=>Address.JaeJu,
+        _=>Address.JaeJu
+    };
+    t2.Rows.Add(row);
+    row=t2.NewRow();
+}
+for(int i=0;i<10;i++)
+{
+    //WriteLine($"Id:{t2.Rows[i][0]} Age:{t2.Rows[i][1]} Name:{t2.Rows[i][2]} Gender:{t2.Rows[i][3]} Address:{t2.Rows[i][4]}.....Row-State:{t2.Rows[i].RowState}");
+    Write($"Id:{t2.Rows[i][0]} Age:{t2.Rows[i][1]} Name:{t2.Rows[i][2]} ");
+    var MW = t2.Rows[i][3] switch
+    {
+        0=>"Woman",
+        1=>"Man",
+        _=>"ManWoman"
+    };
+    Write($" Gender:{MW} ");
+    var Addr = t2.Rows[i][4] switch
+    {
+        0 => "Seoul",
+        1 => "Pusan",
+        2 => "KwangJu",
+        3=> "InChun",
+        4=> "JaeJu",
+        _=> "JaeJu"
+    };
+    Write($" Gender:{MW} ");
+    Write($" Address:{Addr} ");
+    WriteLine($" .....Row-State:{t2.Rows[i].RowState}");
+}
+enum ManWoman { Woman,Man}
+enum Address
+{
+    Seoul,Pusan,KwangJu,JaeJu,Inchun
+}
