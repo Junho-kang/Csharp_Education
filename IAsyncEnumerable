@@ -1,0 +1,85 @@
+var heleleObj= async ()=>
+{ 
+
+//HeleleObj();
+// sub-routine....synchronose service
+// co-routine....weak-Asynchronose service
+do
+{
+    //await Task.Delay(1000);
+    //WriteLine($"infinity service....{Thread.CurrentThread.ManagedThreadId}");
+    //WriteLine(HeleleFunc1().GetType());
+    //for,while,do...while      CPU sevice loop-statement
+    //foreach (var kkk in HeleleFunc1())  // LINQ.....logical-operation ::-collection-loop-statement
+    await foreach (var kkk in HeleleFunc1())  // physical-operation ::-collection-loop-statement
+    {
+        WriteLine($"......1   {kkk}");
+    }
+    //HeleleFunc2();  // single-value return....sub-routine
+    // foreach service...group-value return....co-routine
+    await foreach (var kkk in HeleleFunc2())  // physical-operation ::-collection-loop-statement
+    {
+        WriteLine($"........2   {kkk}");
+    }
+    //HeleleFunc3();
+    await foreach (var kkk in HeleleFunc3())  // physical-operation ::-collection-loop-statement
+    {
+        WriteLine($"........2   {kkk}");
+    }
+    WriteLine("Processing exit......'C' key press");
+    if (ReadKey().Key == ConsoleKey.C) break;
+} while (true);
+// co-routine service
+async IAsyncEnumerable<int> HeleleFunc3()
+{
+    int cnt = 0;
+    do
+    {
+        WriteLine("X...sequence..infinity1...REP...Loop");
+        if (ReadKey().Key == ConsoleKey.X) break;
+        //yield return ReadKey().Key.ToString()[0];
+        WriteLine(cnt++);
+        await Task.Delay(1000);
+        yield return cnt;
+    } while (true);
+}
+// co-routine service
+async IAsyncEnumerable<int> HeleleFunc2()
+{
+    int cnt = 0;
+    do
+    {
+        WriteLine("Y...sequence..infinity2...REP...Loop");
+        if (ReadKey().Key == ConsoleKey.Y) break;
+        //yield return ReadKey().Key.ToString()[0];
+        WriteLine(cnt += 10);
+        await Task.Delay(1000);
+        yield return cnt;
+    } while (true);
+}
+// co-routine service===> C# 8.0 co-routine service
+async IAsyncEnumerable<int> HeleleFunc1()
+{
+    int cnt = 0;
+    yield return cnt += 100; Thread.Sleep(1000);
+    yield return cnt += 100; Thread.Sleep(1000);
+    yield return cnt += 100; Thread.Sleep(1000);
+    yield return cnt += 100; Thread.Sleep(1000);
+    yield return cnt += 100; Thread.Sleep(1000);
+    yield return cnt += 100; Thread.Sleep(1000);
+    yield return cnt += 100; Thread.Sleep(1000);
+    yield return cnt += 100; Thread.Sleep(1000);
+    yield return cnt += 100; Thread.Sleep(1000);
+    do
+    {
+        WriteLine("Z...sequence..infinity2...REP...Loop");
+        if (ReadKey().Key == ConsoleKey.Z) break;
+        //yield return ReadKey().Key.ToString()[0];
+        WriteLine(cnt += 100);
+        await Task.Delay(1000);
+        yield return cnt;
+    } while (true);
+}
+
+
+};
