@@ -1,0 +1,91 @@
+//global using System.Reactive;
+//global using System.Reactive.Disposables;
+//global using System.Reactive.Linq;
+//global using System.Reactive.Subjects;
+
+//global using System.Collections;
+
+
+string? strs = "Hello, World!";
+IDisposable disp = strs.ToObservable()
+    .Subscribe(Write);
+WriteLine();
+disp.Dispose();
+strs.ToList().ForEach(Write);
+WriteLine();
+foreach (var kkk in strs)
+{
+    Write(kkk);
+}
+WriteLine();
+SujaClass sujaObj = new();
+sujaObj.SujaEvent += SujaObj_SujaEvent;
+void SujaObj_SujaEvent(object? sender, EventArgs e)
+{
+    WriteLine($"Event....fire....{((SujaClass)sender).Suja}");
+}
+sujaObj.Suja = 10;
+sujaObj.Suja = 100;
+sujaObj.Suja = 1000;
+WriteLine($"{nameof(sujaObj.Suja)} : {sujaObj.Suja}");
+
+
+// LINKed-list...Single-linked-list
+IEnumerator ptr = strs.GetEnumerator();
+while (ptr.MoveNext())
+{
+    Write(ptr.Current);
+}
+WriteLine();
+ptr.Reset(); // BOF/BOS...begin of sequence(once)....-1; -999:EOF/EOS
+ptr.MoveNext();
+Write(ptr.Current);
+ptr.MoveNext();
+Write(ptr.Current);
+ptr.MoveNext();
+Write(ptr.Current);
+ptr.MoveNext();
+Write(ptr.Current);
+ptr.MoveNext();
+Write(ptr.Current);
+WriteLine();
+WriteLine(".....IEnumerator......IOberver....");
+// node.js===>event-Stream....webSocket......chatting program
+// Emitter object.....(OnXXXX...C/S....OnEmit)
+ISubject<char> subject = new Subject<char>();
+subject.Subscribe(Write);  // data-display
+ptr.Reset(); // BOF/BOS...begin of sequence(once)....-1; -999:EOF/EOS
+ptr.MoveNext();
+subject.OnNext((char)ptr.Current);
+ptr.MoveNext();
+subject.OnNext((char)ptr.Current);
+ptr.MoveNext();
+subject.OnNext((char)ptr.Current);
+ptr.MoveNext();
+subject.OnNext((char)ptr.Current);
+ptr.MoveNext();
+subject.OnNext((char)ptr.Current);
+public partial class SujaClass
+{
+    public event EventHandler SujaEvent;
+    // store.....state.....single-variable
+    int? suja;
+    // property.....single-variable
+    public int? Suja //{ get; set; } = default;
+    {
+        // get-accessor...restrics.....constrant....schema....metaData
+        get => suja;
+        // get-accessor
+        set  // type-safety......security
+        {
+            if (value is not null)
+            {
+                if (SujaEvent is not null)
+                {
+                    suja = value;
+                    SujaEvent(this, EventArgs.Empty);
+                }
+            }
+        }
+    }
+}
