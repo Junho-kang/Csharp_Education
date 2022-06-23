@@ -1,0 +1,66 @@
+// group object.....element....shallow-copy service
+int suja = 10;  // literal service intiger object create
+// group object.....element....deep-copy service
+int suja1 = new int();  // new instance service
+                        //  intiger object create
+                        // Activate===>single-object create utility service
+int suja2 = (int)System.Activator
+    .CreateInstance(typeof(int));
+// C#......CTS....common-type-specification...translate servive
+// new ===> C# keyword service vs
+// C++,java,,, new===>compiler service
+// compiller...new ....memory allocation service
+// (Type service)......sizeof()....
+suja1 = suja;
+suja2 = suja1;
+WriteLine($"suja:{suja} suja1:{suja1} suja3:{suja}");
+var sujas = new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 }; // { }.....group-object....initialization service
+// Array===>group-object create utility service
+var sujas2 = (int[])System.Array.
+    CreateInstance(typeof(int), sujas.Length);//{ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 }; // { }.....group-object....initialization service
+// utility service usage
+Array.Copy(sujas, sujas2, sujas.Length);
+// for: cpu-statement.....loop-statement vs foreach : iterator-statement
+for (int i = sujas.GetLowerBound(0); i < sujas.Length; i++)
+{
+    Write($"   {sujas[i]}");
+}
+WriteLine();
+// for: cpu-statement.....loop-statement vs foreach : iterator-statement
+for (int i = sujas2.GetUpperBound(0); i >= 0; i--)
+{
+    Write($"   {sujas2[i]}");
+}
+WriteLine();
+// utility service usage
+Array.Clear(sujas2, 3, 3);
+// for: cpu-statement.....loop-statement vs foreach : iterator-statement
+for (int i = 0; i < sujas2.Length; i++)
+{
+    Write($"   {sujas2[i]}");
+}
+WriteLine();
+// utility service usage
+Array.Reverse(sujas2);
+// for: cpu-statement.....loop-statement vs foreach : iterator-statement
+for (int i = 0; i < sujas2.Length; i++)
+{
+    Write($"   {sujas2[i]}");
+}
+WriteLine();
+// utility service usage
+Array.Sort(sujas2);
+// for: cpu-statement.....loop-statement vs foreach : iterator-statement
+for (int i = 0; i < sujas2.Length; i++)
+{
+    Write($"   {sujas2[i]}");
+}
+WriteLine();
+// utility service usage
+Array.Clear(sujas2);
+// for: cpu-statement.....loop-statement vs foreach : iterator-statement
+for (int i = 0; i < sujas2.Length; i++)
+{
+    Write($"   {sujas2[i]}");
+}
+WriteLine();
