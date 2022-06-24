@@ -1,0 +1,51 @@
+// dataSource
+using System.Collections.Immutable;
+
+IReadOnlyList<int> sus =
+    new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -1, -2, -3 }
+                        .ToImmutableList();
+//sus.ToList().ToString().Join(',',sus)
+// LINQ operation
+sus.ToList().ForEach(kkk => Write($"   {kkk}"));
+WriteLine();
+sus.Sum().ToString().ToList().ForEach(Write);
+WriteLine();
+// MapReduce
+int tot = sus.Aggregate(0, (prev, curr) => {
+    WriteLine($"trajactory Sum state step: {prev + curr}");
+    return prev + curr;
+});
+WriteLine($"tot:{tot}");
+sus.Max().ToString().ToList().ForEach(Write);
+WriteLine();
+// MapReduce
+int imsi = 0;
+int max = sus.Aggregate(0, (prev, curr) =>
+{
+    imsi = prev > curr ? prev : curr;
+    WriteLine($"trajactory Max state step: {imsi}");
+    return imsi;
+});
+WriteLine($"max:{max}");
+sus.Min().ToString().ToList().ForEach(Write);
+WriteLine();
+// MapReduce
+int min = sus.Aggregate(0, (prev, curr) => //prev > curr ? curr : prev);
+{
+    imsi = prev < curr ? prev : curr;
+    WriteLine($"trajactory Min state step: {imsi}");
+    return imsi;
+});
+WriteLine($"min:{min}");
+sus.Average().ToString().ToList().ForEach(Write);
+WriteLine();
+int cnt = 1;
+// MapReduce
+double ave = sus.Aggregate(0.0,
+    (prev, curr) => //prev + curr,
+    {
+        WriteLine($"trajactory Ave state step: {(prev + curr) / cnt++}");
+        return prev + curr;
+    },
+    last => last / sus.Count);
+WriteLine($"ave:{ave}");
