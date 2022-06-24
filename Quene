@@ -1,0 +1,652 @@
+global using System.Collections;
+global using System.Text.Json;
+
+var HeleleObj = () =>
+{
+    //global using System.Text.Json;
+    int[] sus = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+    var sus1 = new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+    var sus2 = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+    int[,] suss0 = new int[7, 10]
+    {
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 }
+    };
+    int[,,] suss00 = new int[3, 7, 10]
+    {
+    {
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 }
+},
+    {
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 }
+},
+    {
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 }
+}
+    }
+    ;
+    var suss001 = new int[3, 7, 10]
+    {
+    {
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 }
+},
+    {
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 }
+},
+    {
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 }
+}
+    }
+    ;
+    int[,,,] ssss = new int[3, 3, 7, 10]
+    {
+{
+    {
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 }
+},
+    {
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 }
+},
+    {
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 }
+}
+},
+{
+    {
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 }
+},
+    {
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 }
+},
+    {
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 }
+}
+},
+{
+    {
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 }
+},
+    {
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 }
+},
+    {
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 }
+}
+}
+    };
+    var ssss1 = new int[3, 3, 7, 10]
+    {
+{
+    {
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 }
+},
+    {
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 }
+},
+    {
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 }
+}
+},
+{
+    {
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 }
+},
+    {
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 }
+},
+    {
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 }
+}
+},
+{
+    {
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 }
+},
+    {
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 }
+},
+    {
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 }
+}
+}
+    };
+    for (int i = 0; i < 7; i++)
+    {
+        for (int j = 0; j < 10; j++)
+        {
+            Write($"   {suss0[i, j]}");  // columns
+        }
+        WriteLine();  // rows
+    }
+    var suss01 = new int[5, 10]
+    {
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+    { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+        //{ 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+        //{ 1, 2, 3, 4, 5, 6, 7, 8, 9,10 }
+    };
+    int[][] suss =  {sus,sus1,sus2,
+        new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+        new int[] { 1, 2, 3, 4, 5,  }
+    };
+    var suss1 = new int[][] {sus,sus1,sus2,
+        new[] { 1, 2, 3, 4, 5, 6, 7, 8},
+        new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 }
+    };
+    int[][][] ssuss = new int[][][] {suss,suss1,
+     new int[][] {sus,sus1,sus2,
+        new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+        new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 }
+    },
+      new int[][] {sus,sus1,sus2,
+        new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+        new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 }
+    }
+};
+    var ssuss1 = new int[][][] {suss,suss1,
+     new int[][] {sus,sus1,sus2,
+        new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+        new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 }
+    },
+      new int[][] {sus,sus1,sus2,
+        new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 },
+        new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 }
+    }
+};
+    //foreach (var kkk in ssuss)
+    //{
+    //    foreach (var kk in kkk)
+    //    {
+    //        foreach (var k in kk)
+    //        {
+    //            Write($"   {k}");  // columns
+    //        }
+    //        WriteLine();  // rows
+    //    }
+    //    WriteLine("...........sur.....face............");
+    //}
+    //foreach (var kkk in ssuss1)
+    //{
+    //    foreach (var kk in kkk)
+    //    {
+    //        foreach (var k in kk)
+    //        {
+    //            Write($"   {k}");  // columns
+    //        }
+    //        WriteLine();  // rows
+    //    }
+    //    WriteLine("...........sur.....face............");
+    //}
+    var display3 = (int[][][] sss) =>
+    {
+        foreach (var kkk in sss)
+        {
+            foreach (var kk in kkk)
+            {
+                foreach (var k in kk)
+                {
+                    Write($"   {k}");  // columns
+                }
+                WriteLine();  // rows
+            }
+            WriteLine("...........sur.....face............");
+        }
+    };
+    var display2 = (int[][] sss) =>
+    {
+        foreach (var kkk in sss)
+        {
+            foreach (var kk in kkk)
+            {
+                Write($"   {kk}");  // columns
+            }
+            WriteLine();  // rows
+        }
+    };
+    //foreach (var kkk in suss1)
+    //{
+    //    foreach (var kk in kkk)
+    //    {
+    //        Write($"   {kk}");  // columns
+    //    }
+    //    WriteLine();  // rows
+    //}
+    //var display = (int[] sss) =>
+    // C# 7.0 Span<T> pointer service
+    var display = (Span<int> sss) =>
+    {
+        foreach (var kkk in sss)
+        {
+            Write($"   {kkk}");
+        }
+        WriteLine();
+    };
+    // sequence.....stream....[serialization(encoding)/deserialization(decoding)]==>axis change===>conversion<===unit transtration
+    // array-dataSet==>string-stream store
+    var s1 = JsonSerializer.Serialize(sus);
+    //WriteLine(s1);
+    s1.Print();
+    // array-dataSet<==(string-stream) Restore
+    var ss1 = JsonSerializer.Deserialize<int[]>(s1);
+    WriteLine("==========");
+    display(ss1);
+    WriteLine("==========");
+    var s2 = JsonSerializer.Serialize(sus1);
+    s2.Print();
+    // array-dataSet<==(string-stream) Restore
+    var ss2 = JsonSerializer.Deserialize<int[]>(s2);
+    WriteLine("==========");
+    display(ss2);
+    WriteLine("==========");
+    var s3 = JsonSerializer.Serialize(sus2);
+    s3.Print();
+    // array-dataSet<==(string-stream) Restore
+    var ss3 = JsonSerializer.Deserialize<int[]>(s3);
+    WriteLine("==========");
+    display(ss3);
+    WriteLine("==========");
+    //var s4 = JsonSerializer.Serialize(suss0);
+    //s4.Print();
+    //var s5 = JsonSerializer.Serialize(suss00);
+    //s5.Print();
+    //var s6 = JsonSerializer.Serialize(suss001);
+    //s5.Print();
+    //var s7 = JsonSerializer.Serialize(ssss);
+    //s7.Print();
+    //var s8 = JsonSerializer.Serialize(ssss1);
+    //s8.Print();
+    //var s9 = JsonSerializer.Serialize(suss);
+    //s9.Print();
+    //var s10= JsonSerializer.Serialize(suss1);
+    //s10.Print();
+    //var s11= JsonSerializer.Serialize(ssuss);
+    //s11.Print();
+    //var s12= JsonSerializer.Serialize(ssuss1);
+    //s12.Print();
+    WriteLine($"sus :: Rank.....{sus.Rank}");
+    WriteLine($"sus1 :: Rank.....{sus1.Rank}");
+    WriteLine($"sus2 :: Rank.....{sus2.Rank}");
+    WriteLine($"suss0 :: Rank.....{suss0.Rank}");
+    WriteLine($"suss00 :: Rank.....{suss00.Rank}");
+    WriteLine($"suss001 :: Rank.....{suss001.Rank}");
+    WriteLine($"ssss :: Rank.....{ssss.Rank}");
+    WriteLine($"ssss1 :: Rank.....{ssss1.Rank}");
+    WriteLine($"suss :: Rank.....{suss.Rank}");
+    WriteLine($"suss1 :: Rank.....{suss1.Rank}");
+    WriteLine($"ssuss :: Rank.....{ssuss.Rank}");
+    WriteLine($"ssuss1 :: Rank.....{ssuss1.Rank}");
+    display(sus);
+    display(sus1);
+    display(sus2);
+    display2(suss);
+    display2(suss1);
+    display3(ssuss);
+    display3(ssuss1);
+    //foreach (var kkk in sus1)
+    //{
+    //    Write($"   {kkk}");
+    //}
+    //WriteLine();
+    //foreach (var kkk in sus2)
+    //{
+    //    Write($"   {kkk}");
+    //}
+    //WriteLine();
+};
+//HeleleObj();
+// linked-list.....node(result:object)....edge(computation:function:weight)
+//C# 1.0
+ArrayList al = new ();
+al.Add(1);
+al.Add("2");
+for(int i=3;i<=10;i++) al.Add(i);
+WriteLine($"   {al[0]}");
+foreach (var kkk in al)
+{
+    Write($"   {kkk}");
+}
+WriteLine();
+var s1 = JsonSerializer.Serialize(al);
+s1.Print();
+var s11 = JsonSerializer.Deserialize<ArrayList>(s1);
+foreach (var kkk in s11)
+{
+    Write($"   {kkk}");
+}
+WriteLine();
+//C# 2.0
+List<int> al2 = new ();
+al2.Add(1);
+al2.Add(2);
+for (int i = 3; i <= 10; i++) al2.Add(i);
+WriteLine($"   {al2[0]}");
+foreach (var kkk in al2)
+{
+    Write($"   {kkk}");
+}
+WriteLine();
+var s12 = JsonSerializer.Serialize(al2);
+s12.Print();
+var s122 = JsonSerializer.Deserialize<ArrayList>(s12);
+foreach (var kkk in s122)
+{
+    Write($"   {kkk}");
+}
+WriteLine();
+// non-sequencial-data...dictionary
+// sequencial-data....list...stack...queue
+// linked-list.....node(result:object)....edge(computation:function:weight)
+//C# 1.0...FILO
+Stack sp = new();
+sp.Push(1);
+sp.Push("2");
+for (int i = 3; i <= 10; i++) sp.Push(i);
+WriteLine($"   {sp.Pop()}");
+foreach (var kkk in sp)
+{
+    Write($"   {kkk}");
+}
+WriteLine();
+var s2 = JsonSerializer.Serialize(sp);
+s2.Print();
+var s21 = JsonSerializer.Deserialize<Stack>(s2);
+foreach (var kkk in s21)
+{
+    Write($"   {kkk}");
+}
+WriteLine();
+//C# 2.0
+Stack<int> sp2 = new();
+sp2.Push(1);
+sp2.Push(2);
+for (int i = 3; i <= 10; i++) sp2.Push(i);
+WriteLine($"   {sp2.Pop()}");
+foreach (var kkk in sp2)
+{
+    Write($"   {kkk}");
+}
+WriteLine();
+var s22 = JsonSerializer.Serialize(sp2);
+s22.Print();
+var s222 = JsonSerializer.Deserialize<ArrayList>(s22);
+foreach (var kkk in s222)
+{
+    Write($"   {kkk}");
+}
+WriteLine();
+// non-sequencial-data...dictionary
+// sequencial-data....list...stack...queue
+// linked-list.....node(result:object)....edge(computation:function:weight)
+//C# 1.0...FIFO
+Queue que = new();
+que.Enqueue(1);
+que.Enqueue("2");
+for (int i = 3; i <= 10; i++) que.Enqueue(i);
+WriteLine($"   {que.Dequeue()}");
+foreach (var kkk in que)
+{
+    Write($"   {kkk}");
+}
+WriteLine();
+var s3 = JsonSerializer.Serialize(que);
+s3.Print();
+var s31 = JsonSerializer.Deserialize<Stack>(s3);
+foreach (var kkk in s31)
+{
+    Write($"   {kkk}");
+}
+WriteLine();
+//C# 2.0
+Queue<int> que2 = new();
+que2.Enqueue(1);
+que2.Enqueue(2);
+for (int i = 3; i <= 10; i++) que2.Enqueue(i);
+WriteLine($"   {que2.Dequeue()}");
+foreach (var kkk in que2)
+{
+    Write($"   {kkk}");
+}
+WriteLine();
+var s32 = JsonSerializer.Serialize(que2);
+s3.Print();
+var s322 = JsonSerializer.Deserialize<Queue>(s32);
+foreach (var kkk in s322)
+{
+    Write($"   {kkk}");
+}
+WriteLine();
+// non-sequencial-data...dictionary
+// sequencial-data....list...stack...queue
+// linked-list.....node(result:object)....edge(computation:function:weight)
+//C# 1.0...FIFO
+Hashtable ht= new();
+ht["aaa"] = 1111;
+ht["bbb"] = 2222;
+ht["ccc"] = 3333;
+ht["ddd"] = 4444;
+//for (int i = 3; i <= 10; i++) que.Enqueue(i);
+WriteLine($"   {ht["ccc"]}");
+foreach (DictionaryEntry kkk in ht)
+{
+    Write($" key:  {kkk.Key}  - Value:  {kkk.Value}");
+}
+WriteLine();
+var s4 = JsonSerializer.Serialize(ht);
+s4.Print();
+var s41 = JsonSerializer.Deserialize<Hashtable>(s4);
+foreach (DictionaryEntry kkk in s41)
+{
+    Write($" key:  {kkk.Key}  - Value:  {kkk.Value}");
+}
+WriteLine();
+//C# 6.0
+Dictionary<string, int> dic6 = new Dictionary<string, int>
+{
+    ["eee"]=555 ,
+    ["fff"]=666 ,
+    ["ggg"]=777,
+    ["hhh"]=888 ,
+};
+dic6["aaa"] = 1111;
+dic6["bbb"] = 2222;
+dic6["ccc"] = 3333;
+dic6["ddd"] = 4444;
+//C# 2.0
+Dictionary<string, int> dic = new Dictionary<string, int>
+{
+    {"eee",555 },
+    {"fff",666 },
+    {"ggg",777 },
+    {"hhh",888 },
+};
+dic["aaa"] = 1111;
+dic["bbb"] = 2222;
+dic["ccc"] = 3333;
+dic["ddd"] = 4444;
+//for (int i = 3; i <= 10; i++) que2.Enqueue(i);
+WriteLine($"  dic: {dic["ccc"]}  dic6: {dic6["ccc"]}");
+foreach (var kkk in dic)
+{
+    Write($"  Key :  {kkk.Key}  Value : {kkk.Value} ");
+}
+WriteLine();
+foreach (var kkk in dic6)
+{
+    Write($"  Key6 :  {kkk.Key}  Value6 : {kkk.Value} ");
+}
+WriteLine();
+var s5 = JsonSerializer.Serialize(dic);
+s5.Print();
+var s56 = JsonSerializer.Serialize(dic6);
+s56.Print();
+var s51 = JsonSerializer
+    .Deserialize<Dictionary<string, int>>(s5);
+foreach (var kkk in s51)
+{
+    Write($"  Key :  {kkk.Key}  Value : {kkk.Value} ");
+}
+WriteLine();
+var s566 = JsonSerializer
+    .Deserialize<Dictionary<string, int>>(s56);
+foreach (var kkk in s566)
+{
+    Write($"  Key66 :  {kkk.Key}  Value66 : {kkk.Value} ");
+}
+WriteLine();
+public static partial class heleleClass
+{
+    public static void Print<T>(this T hele)
+        => Console.WriteLine(hele);
+}
